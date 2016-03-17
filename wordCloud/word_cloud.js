@@ -17,7 +17,7 @@ function wordMap(data) {
     var max = Math.random() * (200 - min) + min
     var scale = d3.scale.linear().domain([min(data),max(data)]).range([min,max]);
 
-    d3.select("#data")
+    d3.select("#words")
         .selectAll()
         .data(data)
         .enter()
