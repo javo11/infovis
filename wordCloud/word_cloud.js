@@ -7,7 +7,7 @@ d3.json('word_cloud.json', function (data) {
 function wordMap(data) {
     var fill = d3.scale.category20();
     var minFont = Math.random() * (30 - 10) + 10
-    var maxFont = Math.random() * (150 - 100) + 100
+    var maxFont = Math.random() * (125 - 100) + 100
     var scale = d3.scale.linear().domain([min(data),max(data)]).range([minFont,maxFont]);
 
     d3.select("#words")
