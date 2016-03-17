@@ -12,11 +12,11 @@ d3.json('word_cloud.json', function (data) {
 });
 
 function wordMap(data) {
-    var fill = d3.scale.category20();
-    var min = Math.random() * (200 - 15) + 15
-    var max = Math.random() * (200 - min) + min
-    var scale = d3.scale.linear().domain([min(data),max(data)]).range([min,max]);
-
+    var fill = d3.scale.category20c();
+    var minFont = Math.random() * (30 - 10) + 10
+    var maxFont = Math.random() * (150 - 100) + 100
+    var scale = d3.scale.linear().domain([min(data),max(data)]).range([minFont,maxFont]);
+    
     d3.select("#words")
         .selectAll()
         .data(data)
@@ -28,7 +28,13 @@ function wordMap(data) {
         .style("color",function(d, i) {
             return fill(i);
         })
-        .style("font-family", "Helvetica-Neue, Courier New")
+        .style('-webkit-transform', function(d, i) {
+        	return 'rotate(' + ((Math.random() * 4) - 2) + 'deg)'
+        })
+        .style('padding', '2px 5px 2px 5px')
+        .style("font-family", "Courier New, Lucida Console")
+        .style("display", "inline-block")
+        .html('<b></b>')
         .text(function (d, i) {
             return d.word;
         });
