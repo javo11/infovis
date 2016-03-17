@@ -1,14 +1,7 @@
-var stop_words = ['and', 'the', 'with', 'for', 'to', 'of', 'in', 'from', 'a', 'can', 'but', 'get', 'an', 'so',
- 'are', 'has', 'is', 'or', 'it', 'about'];
 
 /** Codigo de NicoBuch **/
 d3.json('word_cloud.json', function (data) {
-    /**
-     * http://stackoverflow.com/questions/16244857/d3-js-data-filtering
-     */
-    wordMap(data.filter(function(d) {
-        return stop_words.indexOf(d.word) === -1;
-    }));
+    wordMap(data);
 });
 
 function wordMap(data) {
