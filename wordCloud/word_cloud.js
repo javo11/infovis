@@ -12,9 +12,10 @@ d3.json('word_cloud.json', function (data) {
 });
 
 function wordMap(data) {
-    var fill = d3.scale.category30();
-
-    var scale = d3.scale.linear().domain([min(data),max(data)]).range([10,200]);
+    var fill = d3.scale.category20();
+    var min = Math.random() * (200 - 15) + 15
+    var max = Math.random() * (200 - min) + min
+    var scale = d3.scale.linear().domain([min(data),max(data)]).range([min,max]);
 
     d3.select("#data")
         .selectAll()
@@ -27,8 +28,7 @@ function wordMap(data) {
         .style("color",function(d, i) {
             return fill(i);
         })
-        .style("font-family", "Impact, sans-serif")
-        .style("display", "inline-block")
+        .style("font-family", "Helvetica-Neue, Courier New")
         .text(function (d, i) {
             return d.word;
         });
