@@ -1,0 +1,17 @@
+.stat-rect {
+	border-radius: 4px;
+	color: white;
+	font-weight: bold;
+}
+
+.agree-rect {
+	background-color: #66bb6a;
+}
+
+.neutral-rect {
+	background-color: #9e9e9e;
+}
+
+.disagree-rect {
+	background-color: #f44336;
+}
