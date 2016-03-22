@@ -5,3 +5,7 @@ html {
 h1, h2, h3 {
 	font-weight: 300;
 }
+
+.brand-logo {
+	padding-left: 15px !important;
+}

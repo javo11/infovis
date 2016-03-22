@@ -2,35 +2,56 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-    <title>How people feel when they make a Wordle</title>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-     <link rel="stylesheet" href="svg_d3.css">
-     		<link rel="stylesheet" href="../style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.js"></script>
+		<title>How people feel when they make a Wordle</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+		<link rel="stylesheet" href="svg_d3.css">
+		<link rel="stylesheet" href="../style.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.js"></script>
 	</head>
 	<body>
 		<script src="svg_d3.js"></script>
-		<div id="container" class = 'container'>
-			<h3 >How people feel when they make a Wordle</h3>
-			<div class = 'row'>
-				<div class = 'col s2 center-align'>
-					<div class = 'agree-rect stat-rect'>
-						<text class = ''>Agree</text>
-					</div>
+		<div class = 'container'>
+			<nav>
+				<div class="nav-wrapper teal lighten-2">
+					<a href="index.html" class="brand-logo">SVG with D3</a>
+					<ul id="nav-mobile" class="right">
+						<li><a href="../index.html">BACK</a></li>
+					</ul>
 				</div>
-				<div class = 'col s2 center-align'>
-					<div class = 'neutral-rect stat-rect'>
-						<text class = ''>Neutral</text>
-					</div>
-				</div>
-				<div class = 'col s2 center-align'>
-					<div class = 'disagree-rect stat-rect'>
-						<text class = ''>Disagree</text>
+			</nav>
+			<div class = 'row'></div>
+			<div class="row">
+				<div class="col s12">
+					<div class="card ">
+						<div class="card-content ">
+							<div class = 'card-title'>
+								<h3 class = 'center-align'>How people feel when they make a Wordle</h3>
+							</div>
+							<div class = 'row'></div>
+							<div class = 'row c'>
+								<div class = 'col s2 center-align offset-s3'>
+									<div class = 'agree-rect stat-rect'>
+										<text class = ''>Agree</text>
+									</div>
+								</div>
+								<div class = 'col s2 center-align'>
+									<div class = 'neutral-rect stat-rect'>
+										<text class = ''>Neutral</text>
+									</div>
+								</div>
+								<div class = 'col s2 center-align'>
+									<div class = 'disagree-rect stat-rect'>
+										<text class = ''>Disagree</text>
+									</div>
+								</div>
+							</div>
+							<div class = 'row'></div>
+							<div id = 'container' class = 'center-align'>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class = 'row'></div>
-
 		</div>
 	</body>
 </html>
