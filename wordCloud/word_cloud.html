@@ -2,11 +2,34 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-    <title>Word Cloud</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.js"></script>
+		<title>Word Cloud</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.js"></script>
+		<link rel="stylesheet" href="../style.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
 	</head>
 	<body>
 		<script src="word_cloud.js"></script>
-		<div id="words"></div>
-	</body>
+		<div class = 'container'>
+			<nav>
+				<div class="nav-wrapper teal lighten-2">
+					<a href="word_cloud.html" class="brand-logo">Word Cloud</a>
+					<ul id="nav-mobile" class="right">
+						<li><a href="../index.html">BACK</a></li>
+					</ul>
+				</div>
+			</nav>
+			<div class="row">
+				<div class="col s12">
+					<div class="card ">
+						<div class="card-content ">
+							<div id = 'words' class ='center align'>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
 </html>
