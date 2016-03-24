@@ -23,7 +23,7 @@ function processDataElement(element, index, array) {
 		.style("height", barHeight)
 		.attr('fill', 'black')
 		.attr("y", barHeight / 2)
-		.style("font-size", "20px")
+	.style("font-size", "20px")
 		.attr('class', 'col s1');
 
 	var x = offset;
