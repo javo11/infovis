@@ -6,10 +6,10 @@ $(document).ready(function() {
 			.data(data)
 			.type("box")
 			.id("Heart Rate")
-			.x("Date")
+		.x("Date")
 			.y("Heart Rate")
 			.time("Date")
-			.height(700)
+		.height(700)
 			.draw();
 	});
 });
