@@ -8,6 +8,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3plus/1.9.3/d3plus.js"></script>
 		<script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 	</head>
 	<body>
 		<header>
@@ -27,16 +28,50 @@
 			<div class = 'container'>
 				<div class = 'row'>
 				</div>
+				<div class="col s12">
+					<ul class="tabs">
+						<li class="tab col s3"><a class = 'active' href="#all-data-tab">Unfiltered</a></li>
+						<li class="tab col s3" onclick = 'load_normal_data()'><a class="" href="#normal-tab">Normal heart rate</a></li>
+						<li class="tab col s3" onclick = 'load_exersice_data()'><a href="#exercise-tab">Exercise heart rate</a></li>
+					</ul>
+				</div>
+				<div class = 'row'>
+				</div>
 				<div class="row">
 					<div class="col s12">
-						<div class="card">
+						<div class="card" id = 'all-data-tab'>
 							<div class = 'row'>
 								<div class = 'center-align card-title col s12'>
 									<h3 >Heart rate by month</h3>
+									<p> I monitored my heart rate from September 2015 to April 2016 using an Apple Watch. This chart considers all measurments.</p>
 								</div>
 							</div>
 							<div class="card-content ">
 								<div id = 'viz' class ='center-align'>
+								</div>
+							</div>
+						</div>
+						<div class="card" id = 'normal-tab'>
+							<div class = 'row'>
+								<div class = 'center-align card-title col s12'>
+									<h3 >"Normal" heart rate by month</h3>
+									<p>This chart only considers measurments when I wasn't exercising. This is roughly an approximation that considers all heart rates above 100 to be exercise.</p>
+								</div>
+							</div>
+							<div class="card-content ">
+								<div id = 'normal' class ='center-align'>
+								</div>
+							</div>
+						</div>
+						<div class="card" id = 'exercise-tab'>
+							<div class = 'row'>
+								<div class = 'center-align card-title col s12'>
+									<h3 >Exercise heart rate by month</h3>
+									<p>This chart only considers measurments when I was exercising.</p>
+								</div>
+							</div>
+							<div class="card-content ">
+								<div id = 'exercise' class ='center-align'>
 								</div>
 							</div>
 						</div>
