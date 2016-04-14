@@ -17,7 +17,10 @@ function box_plot(data, container) {
 		.id("Heart Rate")
 		.x("Date")
 		.y("Heart Rate")
-		.time("Date")
+		.time(function(data) {
+			var date_data = data['Date'].split('-')
+			return new Date(date_data[0], date_data[1], 1, 0, 0, 0, 0);
+		})
 		.height(700)
 		.draw();
 }
