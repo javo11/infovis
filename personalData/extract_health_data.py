@@ -38,7 +38,7 @@ def main():
 					cal_accum_data[day] = hr
 					cal_count[day] = 1
 				append_data(exercise_data, d, hr)
-			elif hr <= int(config['heart_rate_threshold']) - 10:
+			elif hr <= int(config['heart_rate_threshold']) - 15:
 				append_data(normal_data, d, hr)
 
 	for k, v in cal_accum_data.items():
