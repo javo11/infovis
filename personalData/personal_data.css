@@ -1,3 +1,7 @@
-.card {
+.large-card {
 	min-height: 900px !important;
+}
+
+#cal-tab {
+  min-height: 420px !important;
 }

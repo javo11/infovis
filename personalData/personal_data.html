@@ -1,101 +1,117 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Personal Data - Heart Rate</title>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.js"></script>
-		<link rel="stylesheet" href="../style.css">
-		<link rel="stylesheet" href="personal_data.css">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3plus/1.9.3/d3plus.js"></script>
-		<script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-	</head>
-	<body>
-		<header>
-			<script src="personal_data.js"></script>
-			<nav>
-				<div class="nav-wrapper teal lighten-2">
-					<div class = 'container'>
-						<a href="personal_data.html" class="brand-logo">Personal Data - Heart Rate</a>
-						<ul id="nav-mobile" class="right">
-							<li><a href="../index.html">BACK</a></li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-			</script>
-			<main>
-			<div class = 'container'>
-				<div class = 'row'>
-				</div>
-				<div class="col s12">
-					<ul class="tabs">
-						<li class="tab col s3"><a class = 'active' href="#all-data-tab">Unfiltered</a></li>
-						<li class="tab col s3" onclick = 'load_normal_data()'><a class="" href="#normal-tab">Normal heart rate</a></li>
-						<li class="tab col s3" onclick = 'load_exersice_data()'><a href="#exercise-tab">Exercise heart rate</a></li>
-					</ul>
-				</div>
-				<div class = 'row'>
-				</div>
-				<div class="row">
-					<div class="col s12">
-						<div class="card" id = 'all-data-tab'>
-							<div class = 'row'>
-								<div class = 'center-align card-title col s12'>
-									<h3 >Heart rate by month</h3>
-									<p> I monitored my heart rate from September 2015 to April 2016 using an Apple Watch. This chart considers all measurments.</p>
-								</div>
-							</div>
-							<div class="card-content ">
-								<div id = 'viz' class ='center-align'>
-								</div>
-							</div>
-						</div>
-						<div class="card" id = 'normal-tab'>
-							<div class = 'row'>
-								<div class = 'center-align card-title col s12'>
-									<h3 >"Normal" heart rate by month</h3>
-									<p>This chart only considers measurments when I wasn't exercising. This is roughly an approximation that considers all heart rates above 100 to be exercise.</p>
-								</div>
-							</div>
-							<div class="card-content ">
-								<div id = 'normal' class ='center-align'>
-								</div>
-							</div>
-						</div>
-						<div class="card" id = 'exercise-tab'>
-							<div class = 'row'>
-								<div class = 'center-align card-title col s12'>
-									<h3 >Exercise heart rate by month</h3>
-									<p>This chart only considers measurments when I was exercising.</p>
-								</div>
-							</div>
-							<div class="card-content ">
-								<div id = 'exercise' class ='center-align'>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			</main>
-			<footer class="page-footer teal lighten-2">
-				<div class="container">
-					<div class="row">
-						<div class="col s12 center-align">
-							<span class="white-text ">ITBA - Javier Fraire - </span>
-							<a href = "mailto:jfraire@itba.edu.ar" class="grey-text text-lighten-4">jfraire@itba.edu.ar</a>
-							<span class = 'white-text'> - </span>
-							<a class="white-text" href="https://github.com/javo11/infovis">View on Github</a>
-						</div>
-					</div>
-				</div>
-				<div class="footer-copyright">
-					<div class="container center-align">
-						© 2016 Copyright
-					</div>
-				</div>
-			</footer>
-		</body>
-	</html>
+<head>
+  <meta charset="utf-8">
+  <title>Personal Data - Heart Rate</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.js"></script>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="calendar-heatmap.css">
+  <link rel="stylesheet" href="personal_data.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3plus/1.9.3/d3plus.js"></script>
+  <script src="moment.min.js"></script>
+  <script src="calendar-heatmap.js"></script>
+  <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+</head>
+<body>
+  <header>
+    <script src="personal_data.js"></script>
+    <nav>
+      <div class="nav-wrapper teal lighten-2">
+        <div class = 'container'>
+          <a href="personal_data.html" class="brand-logo">Personal Data - Heart Rate</a>
+          <ul id="nav-mobile" class="right">
+            <li><a href="../index.html">BACK</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class = 'container'>
+      <div class = 'row'>
+      </div>
+      <div class="col s12">
+        <ul class="tabs">
+          <li class="tab col s3"><a class = 'active' href="#all-data-tab">Unfiltered</a></li>
+          <li class="tab col s3" onclick = 'load_normal_data()'><a class="" href="#normal-tab">Normal heart rate</a></li>
+          <li class="tab col s3" onclick = 'load_exersice_data()'><a href="#exercise-tab">Exercise heart rate</a></li>
+          <li class="tab col s3" onclick = 'load_cal_tab()'><a href="#cal-tab">Calendar heatmap</a></li>
+        </ul>
+      </div>
+      <div class = 'row'>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <div class="card large-card" id = 'all-data-tab'>
+            <div class = 'row'>
+              <div class = 'center-align card-title col s12'>
+                <h3 >Heart rate by month</h3>
+                <p> I monitored my heart rate from October 2015 to May 2016 using an Apple Watch. This chart considers all measurements. I could infer from the charts that when I exercise more, my resting heart rate decreases.</p>
+              </div>
+            </div>
+            <div class="card-content ">
+              <div id = 'viz' class ='center-align'>
+              </div>
+            </div>
+          </div>
+          <div class="card large-card" id = 'normal-tab'>
+            <div class = 'row'>
+              <div class = 'center-align card-title col s12'>
+                <h3 >Resting heart rate by month</h3>
+                <p>This chart only considers the resting heart rate. This is roughly an approximation that considers all heart rates above 105 to be exercise and the ones below 95 to be resting.</p>
+              </div>
+            </div>
+            <div class="card-content">
+              <div id = 'normal' class ='center-align'>
+              </div>
+            </div>
+          </div>
+          <div class="card large-card" id = 'exercise-tab'>
+            <div class = 'row'>
+              <div class = 'center-align card-title col s12'>
+                <h3 >Exercise heart rate by month</h3>
+                <p>This chart only considers measurments when I was exercising.</p>
+              </div>
+            </div>
+            <div class="card-content">
+              <div id = 'exercise' class ='center-align'>
+              </div>
+            </div>
+          </div>
+          <div class="card" id = 'cal-tab'>
+            <div class = 'row'>
+              <div class = 'center-align card-title col s12'>
+                <h3 >Calendar heat map</h3>
+                <p>This calendar heat map shows the average heart rate by month.
+                </div>
+              </div>
+              <div class="card-content ">
+                <div id = 'cal-heatmap' class ='center-align'>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="page-footer teal lighten-2">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 center-align">
+            <span class="white-text ">ITBA - Javier Fraire - </span>
+            <a href = "mailto:jfraire@itba.edu.ar" class="grey-text text-lighten-4">jfraire@itba.edu.ar</a>
+            <span class = 'white-text'> - </span>
+            <a class="white-text" href="https://github.com/javo11/infovis">View on Github</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container center-align">
+          © 2016 Copyright
+        </div>
+      </div>
+    </footer>
+  </body>
+  </html>

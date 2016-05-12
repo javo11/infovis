@@ -1,12 +1,15 @@
 "use strict";
 var loaded_normal_data = false;
 var loaded_exercise_data = false;
+var loaded_cal_data = false;
 $(document).ready(function() {
-	d3.json('heart_rate.json', function(data) {
+	d3.json('hr_all_data.json', function(data) {
 		box_plot(data, "#viz")
 	});
 
 	$('ul.tabs').tabs();
+
+
 });
 
 function box_plot(data, container) {
@@ -25,9 +28,30 @@ function box_plot(data, container) {
 		.draw();
 }
 
+function load_cal_tab() {
+	if (!loaded_cal_data) {
+		d3.json('hr_cal_data.json', function(data) {
+			data = data.map(function(elem) {
+				var dic = elem
+				dic["date"] = new Date(elem["date"]);
+				dic["date"].setDate(dic["date"].getDate() + 1);
+				return dic;
+			});
+			var chart1 = calendarHeatmap()
+			.data(data)
+			.selector('#cal-heatmap')
+			.colorRange(['#dae289', '#3b6427'])
+			.legendEnabled(true)
+			.tooltipEnabled(true);
+			chart1();
+			loaded_cal_data = true;
+		});
+	}
+}
+
 function load_exersice_data() {
 	if (!loaded_exercise_data) {
-		d3.json('heart_rate_exercise.json', function(data) {
+		d3.json('hr_exercise_data.json', function(data) {
 			box_plot(data, "#exercise")
 			loaded_exercise_data = true;
 		});
@@ -37,7 +61,7 @@ function load_exersice_data() {
 function load_normal_data() {
 	if (!loaded_normal_data) {
 		loaded_normal_data = true;
-		d3.json('heart_rate_normal.json', function(data) {
+		d3.json('hr_normal_data.json', function(data) {
 			box_plot(data, "#normal")
 		});
 	}
